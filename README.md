@@ -2,6 +2,8 @@
 
 **Typeahead search for FontAwesome icons.**
 
+*Note: currently only supports FontAwesome v4.7.0*
+
 ## Installation
 
 Simply copy the `FontAwesome` folder into `site/addons/`. That's it!
