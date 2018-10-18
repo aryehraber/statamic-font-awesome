@@ -4,3 +4,25 @@ description: Typeahead search for FontAwesome icons.
 url: -
 developer: Aryeh Raber
 developer_url: https://aryehdesigns.com
+fieldtype_fields:
+  category_filter:
+    type: suggest
+    options:
+      - 'Web Application Icons'
+      - 'Accessibility Icons'
+      - 'Hand Icons'
+      - 'Transportation Icons'
+      - 'Gender Icons'
+      - 'File Type Icons'
+      - 'Spinner Icons'
+      - 'Form Control Icons'
+      - 'Payment Icons'
+      - 'Chart Icons'
+      - 'Currency Icons'
+      - 'Text Editor Icons'
+      - 'Directional Icons'
+      - 'Video Player Icons'
+      - 'Brand Icons'
+      - 'Medical Icons'
+
+

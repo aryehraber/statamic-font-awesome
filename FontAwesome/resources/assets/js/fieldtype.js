@@ -1,6 +1,6 @@
 Vue.component('font_awesome-fieldtype', {
     props: ['data', 'config', 'name'],
-    
+
     template: `
         <div>
             <div v-if="loading" class="loading loading-basic">
@@ -23,6 +23,16 @@ Vue.component('font_awesome-fieldtype', {
             this.$http.get('/!/FontAwesome/icons').then(resp => {
                 this.loading = false;
                 this.icons = resp.data;
+
+                this.categoryFilter = this.config.category_filter;
+
+                if(this.categoryFilter && this.categoryFilter.length > 0) {
+                  this.icons = this.icons.filter(icon => {
+                    return icon.categories.some(category => {
+                      return this.categoryFilter.indexOf(category) >= 0;
+                    });
+                  });
+                }
 
                 this.$nextTick(() => this.selectize());
             });
