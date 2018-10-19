@@ -28,6 +28,18 @@ fields:
 
 ---
 
+**Filtering**
+
+When adding a FontAwesome field to a fieldset you can apply filters so that only certain icons are available - the possible categories are listed on the [FontAwesome website](https://fontawesome.com/v4.7.0/icons/). Select a filter under the field 'extras' in the control panel, filters add a `category_filter` option to the data:
+```yaml
+fields:
+  icon:
+    type: font_awesome
+    category_filter:
+      - 'Chart Icons'
+      - 'Currency Icons'
+```
+
 **Example Template**
 ```html
 <ul class="my-awesome-list">
