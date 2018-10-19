@@ -24,12 +24,12 @@ Vue.component('font_awesome-fieldtype', {
                 this.loading = false;
                 this.icons = resp.data;
 
-                this.categoryFilter = this.config.category_filter;
+                this.categoryFilter = this.config.category_filter || [];
 
-                if(this.categoryFilter && this.categoryFilter.length > 0) {
+                if (this.categoryFilter.length > 0) {
                   this.icons = this.icons.filter(icon => {
                     return icon.categories.some(category => {
-                      return this.categoryFilter.indexOf(category) >= 0;
+                      return this.categoryFilter.indexOf(category) > -1;
                     });
                   });
                 }
