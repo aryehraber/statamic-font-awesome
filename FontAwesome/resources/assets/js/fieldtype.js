@@ -20,7 +20,9 @@ Vue.component('font_awesome-fieldtype', {
 
   methods: {
     init() {
-      this.$http.get('/!/FontAwesome/icons').then(resp => {
+      let siteRoot = (document.location.pathname.indexOf('/cp') !== 0) ? document.location.pathname.substring(0, document.location.pathname.indexOf('/cp')) : '';
+      
+      this.$http.get(siteRoot + '/!/FontAwesome/icons').then(resp => {
         this.loading = false;
         this.icons = resp.data;
 
