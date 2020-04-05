@@ -1,72 +1,98 @@
-# Font Awesome
+# Font Awesome (Statamic 3)
 
-**Typeahead search for FontAwesome icons.**
+**Typeahead search for Font Awesome icons.**
 
-*Note: currently only supports FontAwesome v4.7.0*
+This addon adds a new Fieldtype to the CP making it easy to search and select Font Awesome icons. Additionally, a Tag is provided to make outputting icons inside your templates a breeze. See usage section below for full example.
+
+<img src="https://user-images.githubusercontent.com/5065331/78498702-3514d900-774c-11ea-8633-08643f1b03bd.gif" alt="Font Awesome" width="700">
 
 ## Installation
 
-Simply copy the `FontAwesome` folder into `site/addons/`. That's it!
+Install the addon via composer:
+
+```
+composer require aryehraber/statamic-font-awesome:dev-statamic-3
+```
+
+Publish the config file:
+
+```
+php artisan vendor:publish --provider="AryehRaber\FontAwesome\FontAwesomeServiceProvider" --tag="config"
+```
+
+Alternately, you can manually setup the config file by creating `fontawesome.php` inside your project's config directory:
+
+```php
+<?php
+
+return [
+    'kit_url' => env('FA_KIT_URL', ''),
+];
+```
+
+Add your Font Awesome Kit URL to the config (or `.env` file) to get started using the addon.
+
+Get started using a Font Awesome Kit here: https://fontawesome.com/start.
+
+**Important note:** this addon currently only supports the Web Font Kit in the CP. If you would like to use the SVG Kit, please create 2 Kits and use the Web Font version in the above config file, then skip the `{{ font_awesome:kit }}` tag and add your SVG Kit Code to your template manually.
 
 ## Usage
 
-**Example Fieldset**
+**Fieldset**
 ```yaml
 fields:
-  my_awesome_list:
-    type: grid
-    fields:
-      text:
-        type: text
-      icon:
-        type: font_awesome
+  -
+    handle: feature_list
+    field:
+      type: grid
+      fields:
+        -
+          handle: text
+          field:
+            type: text
+        -
+          handle: icon
+          field:
+            type: font_awesome
 ```
 
-**View in CP**
-![FontAwesome Fieldtype](https://user-images.githubusercontent.com/5065331/27541164-311fbc54-5a83-11e7-9919-ff96de9aa3c4.gif)
-
-
----
-
-**Filtering**
-
-When adding a FontAwesome field to a fieldset you can apply filters so that only certain icons are available - the possible categories are listed on the [FontAwesome website](https://fontawesome.com/v4.7.0/icons/). Select a filter under the field 'extras' in the control panel, filters add a `category_filter` option to the data:
-```yaml
-fields:
-  icon:
-    type: font_awesome
-    category_filter:
-      - 'Chart Icons'
-      - 'Currency Icons'
-```
-
-**Example Template**
+**Template**
 ```html
-<ul class="my-awesome-list">
-    {{ my_awesome_list }}
-        <li>
-            {{ font_awesome:icon }}
-            {{ text }}
-        </li>
-    {{ /my_awesome_list }}
-</ul>
+<head>
+    {{ font_awesome:kit }}
+</head>
+<body>
+    <ul class="feature-list">
+        {{ feature_list }}
+            <li>
+                {{ font_awesome:icon }}
+                {{ text }}
+            </li>
+        {{ /feature_list }}
+    </ul>
+</body>
 ```
 
 **Rendered HTML**
 
 ```html
-<ul class="my-awesome-list">
-    <li>
-        <i class="fa fa-file-excel-o" aria-hidden="true"></i>
-        Excel Files
-    </li>
-    <li>
-        <i class="fa fa-search" aria-hidden="true"></i>
-        Search
-    </li>
-    <li>
-        <i class="fa fa-bolt" aria-hidden="true"></i>
-        Speed
-    </li>
-</ul>
+<head>
+    <script src="https://kit.fontawesome.com/[YOUR_KIT_ID_HERE].js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <ul class="feature-list">
+        <li>
+            <i class="fas fa-file-excel" aria-hidden="true"></i>
+            Excel Files
+        </li>
+        <li>
+            <i class="fas fa-search" aria-hidden="true"></i>
+            Search
+        </li>
+        <li>
+            <i class="fas fa-bolt" aria-hidden="true"></i>
+            Speed
+        </li>
+    </ul>
+</body>
 ```
