@@ -1,0 +1,14 @@
+{
+    "name": "aryehraber/statamic-font-awesome",
+    "description": "Typeahead search for Font Awesome icons",
+    "homepage": "https://github.com/aryehraber/statamic-font-awesome",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Aryeh Raber",
+            "email": "aryeh.raber@gmail.com",
+            "homepage": "https://aryeh.dev",
+            "role": "Developer"
+        }
+    ]
+}
