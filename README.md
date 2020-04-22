@@ -14,20 +14,10 @@ Install the addon via composer:
 composer require aryehraber/statamic-font-awesome:dev-statamic-3
 ```
 
-Publish the config file:
+Publish the fieldtype assets & config file:
 
 ```
-php artisan vendor:publish --provider="AryehRaber\FontAwesome\FontAwesomeServiceProvider" --tag="config"
-```
-
-Alternately, you can manually setup the config file by creating `fontawesome.php` inside your project's config directory:
-
-```php
-<?php
-
-return [
-    'kit_url' => env('FA_KIT_URL', ''),
-];
+php artisan vendor:publish --provider="AryehRaber\FontAwesome\FontAwesomeServiceProvider"
 ```
 
 Add your Font Awesome Kit URL to the config (or `.env` file) to get started using the addon.
