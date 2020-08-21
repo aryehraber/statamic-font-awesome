@@ -1,4 +1,4 @@
-# Font Awesome (Statamic 3)
+# Font Awesome
 
 **Typeahead search for Font Awesome icons.**
 
@@ -11,7 +11,7 @@ This addon adds a new Fieldtype to the CP making it easy to search and select Fo
 Install the addon via composer:
 
 ```
-composer require aryehraber/statamic-font-awesome:dev-statamic-3
+composer require aryehraber/statamic-font-awesome
 ```
 
 Publish the fieldtype assets & config file:
