@@ -31,7 +31,11 @@ class FontAwesomeTags extends Tags
 
     protected function output($icon)
     {
-        if (! $classes = Arr::get($icon->value(), 'classes')) return;
+        if (! $classes = Arr::get($icon->value(), 'classes')) {
+            return;
+        }
+
+        $classes .= " {$this->params->get('class')}";
 
         return "<i class=\"{$classes}\" aria-hidden=\"true\"></i>";
     }
