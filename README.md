@@ -1,3 +1,9 @@
+---
+
+### This package is no longer being maintained, please use the new [Font Awesome](https://statamic.com/addons/aerni/font-awesome) addon instead.
+
+---
+
 # Font Awesome
 
 **Typeahead search for Font Awesome icons.**
